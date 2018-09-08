@@ -7,8 +7,8 @@ require("./packages.js");
 require("./cmdhandler.js");
 
 ds_client.on('ready', () => {
-	utils.setTerminalTitle(language.main.terminal_name);
-	utils.log(language.launcher.suc_logged + ds_client.user.tag);
+	utils.setTerminalTitle(language.main.name + " / " + language.main.description);
+	utils.log(language.launcher.suc_logged, ds_client.user.tag);
 	utils.log(language.launcher.guilds_list);
 	
 	ds_client.user.setUsername(botconfig.bot.name);

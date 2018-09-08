@@ -2,7 +2,10 @@
 node_modules
 package-lock.json
 
-
 # Startup
 start-bot.bat
 start-bot.sh
+
+# Logs folder & files
+logs
+*.log

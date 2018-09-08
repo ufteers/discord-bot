@@ -4,14 +4,15 @@
 	
 	"main":
 	{
-		"terminal_name": "Discord Bot - Multifunctional Discord bot"
+		"name": "Discord Bot",
+		"description": "Multifunctional Discord bot"
 	},
 	"launcher":
 	{
 		"init": "Initaliazation launcher...",
-		"language_init": "Initialized language package - English (en).",
+		"language_init": "Initialized language package - %s (%s).",
 		"invalid_token": "Invalid bot token, you can change it in bot-config.json.",
-		"suc_logged": "Bot successfully logged in as ",
+		"suc_logged": "Bot successfully logged in as %s",
 		"guilds_list": "Guilds list:",
 		"guilds_users": "users"
 	},
@@ -34,5 +35,20 @@
 		"command_discord": "Command \"%s\" already exits in Discord.",
 		"command_found": "%s (id - %d) use command /%s %s",
 		"command_notfound": "%s (id - %d) tried to use an existing command /%s %s"
+	},
+	"modules":
+	{
+		"m_info":
+		{
+			"runtime_text": "Bot has been successfully loaded.",
+
+			"uptime_title": "Uptime",
+			"uptime_text": "Bot has been running for %s",
+
+			"uptime_started": "Last started on %s",
+
+			"ping_title": "Ping",
+			"ping_text": "The difference between the creation of the message and the response is `%d` ms."
+		}
 	}
 }

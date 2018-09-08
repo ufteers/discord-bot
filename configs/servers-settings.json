@@ -1,6 +1,13 @@
 {
 	"487245689835749377":
 	{
-		"command_prefix": "/"
+		"command_prefix": "/",
+		"m_info":
+		{
+			"runtime_message":
+			{
+				"channelid": "487245689835749379"
+			}
+		}
 	}
 }
