@@ -1,0 +1,8 @@
+# Removed node_modules directory & files
+node_modules
+package-lock.json
+
+
+# Startup
+start-bot.bat
+start-bot.sh

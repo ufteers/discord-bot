@@ -1,0 +1,38 @@
+{
+	"name": "English",
+	"code": "en",
+	
+	"main":
+	{
+		"terminal_name": "Discord Bot - Multifunctional Discord bot"
+	},
+	"launcher":
+	{
+		"init": "Initaliazation launcher...",
+		"language_init": "Initialized language package - English (en).",
+		"invalid_token": "Invalid bot token, you can change it in bot-config.json.",
+		"suc_logged": "Bot successfully logged in as ",
+		"guilds_list": "Guilds list:",
+		"guilds_users": "users"
+	},
+	"updater":
+	{
+		"init": "Check for updates...",
+		"no_updates": "You are using the latest version of bot."
+	},
+	"package":
+	{
+		"loaded": "Package \"%s\" has been loaded.",
+		"noindexjs": "Package \"%s\" has no index.js"
+	},
+	"cmdhandler":
+	{
+		"init": "Initaliazation command handler...",
+		"package_registered": "Package \"%s\" registered commands: %s",
+		"command_prefix": "Command prefix - ",
+		"command_defined": "Command \"%s\" already defined.",
+		"command_discord": "Command \"%s\" already exits in Discord.",
+		"command_found": "%s (id - %d) use command /%s %s",
+		"command_notfound": "%s (id - %d) tried to use an existing command /%s %s"
+	}
+}

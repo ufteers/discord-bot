@@ -1,0 +1,9 @@
+{
+	"skip_update": false,
+	"language_package": "english",
+	"bot":
+	{
+		"name": "Bot",
+		"token": "bot token here"
+	}
+}
