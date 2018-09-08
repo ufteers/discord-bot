@@ -4,9 +4,7 @@ var init = function(response) {
 	
 	//Soon
 	utils.log(language.updater.no_updates + "\n");
-	setTimeout(function() {
-		response.apply([false]);
-	}, 500);
+	response.apply([false]);
 }
 
 module.exports = {init: init};

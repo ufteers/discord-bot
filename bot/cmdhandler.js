@@ -71,3 +71,18 @@ ds_client.on('message', (message) =>
 global.cmd = function(filename) {
 	return path.basename(filename).substring(0, path.basename(filename).length - 3);
 }
+
+global.isCanUsed = function(module, cmd, message) {
+	if(serverconfig[message.guild.id][module].commands[cmd].channels[0] == 0) return 0;
+	else if(serverconfig[message.guild.id][module].commands[cmd].channels[0] == -1) return 1;
+	else 
+	{
+		var channels = serverconfig[message.guild.id][module].commands[cmd].channels;
+		for(var i = 0; i < channels.length; i++) {
+			if(message.channel.id === channels[i]) {
+				if(channels[i].length > 17) return 1;
+			}
+		}
+		return 0;
+	}
+}

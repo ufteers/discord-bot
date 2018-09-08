@@ -34,13 +34,24 @@
 		"command_defined": "Command \"%s\" already defined.",
 		"command_discord": "Command \"%s\" already exits in Discord.",
 		"command_found": "%s (id - %d) use command /%s %s",
-		"command_notfound": "%s (id - %d) tried to use an existing command /%s %s"
+		"command_notfound": "%s (id - %d) tried to use an existing command /%s %s",
+
+		"invalid_arguments": "Verify that the command you entered is correct.",
+		"no_manage_permission": "You do not have enough permissions to use this command."
 	},
 	"modules":
 	{
+		"m_admin":
+		{
+			"whois_status": "Status",
+			"whois_joined": "Joined",
+			"whois_registered": "Registered",
+			"whois_roles": "Roles (%s)",
+			"clean_text": "Bulk delete in <#%s>, `%d` messages deleted."
+		},
 		"m_info":
 		{
-			"runtime_text": "Bot has been successfully loaded.",
+			"run_text": "Bot has been successfully loaded.",
 
 			"uptime_title": "Uptime",
 			"uptime_text": "Bot has been running for %s",
