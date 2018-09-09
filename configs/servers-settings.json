@@ -2,12 +2,31 @@
 	"487245689835749377":
 	{
 		"command_prefix": "/",
+		"m_actions":
+		{
+			"welcome_message": {
+				"text": [ 
+					"Hello, im Bot!",
+					"- Welcome on our Discord server!",
+					" ",
+					"Links:",
+					"GitHub: <https://github.com/ufteers/discord-bot/>"
+				],
+				"attach": "https://media.discordapp.net/attachments/482593482930782219/488411514236174348/unknown.png"
+			},
+
+			"join_message": "488427105101676544",
+			"leave_message": "488427105101676544",
+
+			"ban_add_message": "488427105101676544",
+			"ban_remove_message": "488427105101676544"
+		},
 		"m_admin":
 		{
 			"commands":
 			{
 				"clean": {"channels": ["-1"]},
-				"say": {"channels": ["487245689835749379"]},
+				"say": {"channels": ["-1"]},
 				"whois": {"channels": ["-1"]}
 			}
 		},
@@ -17,10 +36,7 @@
 				"ping": {"channels": ["-1"]},
 				"uptime": {"channels": ["-1"]}
 			},
-			"run_message":
-			{
-				"channelid": "487245689835749379"
-			}
+			"run_message": "488427105101676544"
 		}
 	}
 }

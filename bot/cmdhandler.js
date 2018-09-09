@@ -50,10 +50,9 @@ ds_client.on('ready', () =>
 
 ds_client.on('message', (message) => 
 {
+	if(message.author.bot) return;
 	if(serverconfig[message.guild.id])
 	{
-		if(message.author.bot) return;
-		
 		if(message.content.indexOf(serverconfig[message.guild.id].command_prefix) !== 0) return;
 		const args = message.content.slice(1).trim().split(/ +/g);
 		const command = args.shift().toLowerCase();

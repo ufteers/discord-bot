@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
     console.log(args[0][2]);
     if(!args[0]) return message.reply(language.cmdhandler.invalid_arguments);
     if(!args[0][1] == '#') return message.reply(language.cmdhandler.invalid_arguments);
-    if(!(args[1] || arrachmenturl)) return message.reply(language.cmdhandler.invalid_arguments);
+    if(!(args[1] || attachmenturl)) return message.reply(language.cmdhandler.invalid_arguments);
     
     var channel_id = args[0].replace(/\D/g,'');
     args.shift();
@@ -41,7 +41,7 @@ module.exports.run = async (bot, message, args) => {
       message_text += args[i];
     };
 
-    if(arrachmenturl) ds_client.channels.get(channel_id).send(message_text, {files:[arrachmenturl]});
+    if(attachmenturl) ds_client.channels.get(channel_id).send(message_text, {files:[attachmenturl]});
     else ds_client.channels.get(channel_id).send(message_text);
   }
 }

@@ -34,8 +34,10 @@ module.exports.run = async (bot, message, args) => {
       var role = message.guild.roles.get(element);
 
       user_roles_list += role.name;
-      if(user_roles_count <user_roles_list_array.length) user_roles_list += ", ";
+      if(user_roles_count < user_roles_list_array.length) user_roles_list += ", ";
     });
+
+    if(!user_roles_list.length) user_roles_list = language.modules.m_admin.whois_roles_none;
 
     const embed = {
       "color": 0xa299e1,

@@ -41,12 +41,29 @@
 	},
 	"modules":
 	{
+		"m_actions":
+		{
+			"member_join": "Member join (%d users)",
+			"bot_join": "Bot join (%d users)",
+
+			"user_registered": "Registered",
+			"user_joinded": "Joinded",
+
+			"member_left": "Member left (%d users)",
+			"bot_left": "Bot left (%d users)",
+
+			"member_banned": "Member banned (%d users)",
+			"bot_banned": "Bot banned (%d users)",
+			"member_unbanned": "Member unbanned",
+			"bot_unbanned": "Bot unbanned"
+		},
 		"m_admin":
 		{
 			"whois_status": "Status",
 			"whois_joined": "Joined",
 			"whois_registered": "Registered",
 			"whois_roles": "Roles (%s)",
+			"whois_roles_none": "None",
 			"clean_text": "Bulk delete in <#%s>, `%d` messages deleted."
 		},
 		"m_info":
