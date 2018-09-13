@@ -41,5 +41,9 @@ exports.removeFromArray = function(array, value) {
 	return array;
 };
 
+exports.randomBool = function() {
+	return Math.round((Math.random() * 1) + 0) === 0;
+}
+
 if (!fs.existsSync("./logs")) fs.mkdirSync("./logs");
 var log = fs.createWriteStream("./logs/time - " + this.getTime("HH.mm.ss, date DD.MM.YYYY") + ".log", {flags: 'a'});

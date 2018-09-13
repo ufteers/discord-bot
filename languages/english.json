@@ -77,6 +77,14 @@
 
 			"ping_title": "Ping",
 			"ping_text": "The difference between the creation of the message and the response is `%d` ms."
+		},
+		"m_other":
+		{
+			"coin_tossed": "Tossed a coin...",
+			"coin_dropped": "The coin falls...",
+			"coin_title": "Coin",
+			"coin_heads": "- The heads fell!",
+			"coin_tails": "- Tails fell out!"
 		}
 	}
 }

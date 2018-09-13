@@ -24,6 +24,7 @@ module.exports.run = async (bot, message, args) => {
       messages_list.forEach(element => {messages_count++;});
       
       message.channel.bulkDelete(messages_list).then;
+      
       const embed = {
 				"color": 0xa299e1,
 				"author": {"name": guild_name},

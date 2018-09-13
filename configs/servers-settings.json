@@ -1,10 +1,11 @@
 {
-	"487245689835749377":
-	{
-		"command_prefix": "/",
-		"m_actions":
-		{
+	"487245689835749377": {
+
+		"command_prefix": ["{mention}", "/", "~"],
+		"m_actions": {
+
 			"welcome_message": {
+				
 				"text": [ 
 					"Hello, im Bot!",
 					"- Welcome on our Discord server!",
@@ -21,22 +22,30 @@
 			"ban_add_message": "488427105101676544",
 			"ban_remove_message": "488427105101676544"
 		},
-		"m_admin":
-		{
-			"commands":
-			{
+		"m_admin": {
+
+			"commands": {
+
 				"clean": {"channels": ["-1"]},
 				"say": {"channels": ["-1"]},
 				"whois": {"channels": ["-1"]}
 			}
 		},
-		"m_info":
-		{
+		"m_info": {
+
 			"commands": {
+
 				"ping": {"channels": ["-1"]},
 				"uptime": {"channels": ["-1"]}
 			},
 			"run_message": "488427105101676544"
+		},
+		"m_other": {
+
+			"commands": {
+
+				"coin": {"channels": ["-1"]}
+			}
 		}
 	}
 }

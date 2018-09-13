@@ -11,15 +11,13 @@ module.exports.run = async (bot, message, args) => {
     }
 
     //Check attachments
-    var arrachmenturl = "";
+    var attachmenturl = "";
     message.attachments.forEach(element => {
 
-      arrachmenturl = element.url;
+      attachmenturl = element.url;
     });
 
     //Check args
-    console.log(args[0][1]);
-    console.log(args[0][2]);
     if(!args[0]) return message.reply(language.cmdhandler.invalid_arguments);
     if(!args[0][1] == '#') return message.reply(language.cmdhandler.invalid_arguments);
     if(!(args[1] || attachmenturl)) return message.reply(language.cmdhandler.invalid_arguments);
