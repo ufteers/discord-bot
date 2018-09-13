@@ -1,12 +1,6 @@
 const format = require("format");
 const moment = require("moment");
-const fs = require("fs");
-
-exports.log = function () {
-
-	log.write("[" + this.getTime() + "] " + format.apply(null, arguments) + "\n")
-	return console.log("[" + this.getTime() + "] " + format.apply(null, arguments));
-};
+const winston = require('winston');
 
 exports.format = function () {
 
@@ -15,7 +9,7 @@ exports.format = function () {
 
 exports.getTime = function (format = "HH:mm:ss DD/MM/YYYY") {
 
-	return moment(new Date()).format(format);
+	return moment().format(format);
 };
 
 exports.convertTime = function (timestamp, format = "HH:mm:ss DD/MM/YYYY") {
@@ -33,10 +27,9 @@ exports.removeFromArray = function(array, value) {
 
 	var  a = value, L = a.length, ax;
 	while (L && array.length) {
-			a[--L];
-			while ((ax = array.indexOf(a)) !== -1) {
-        array.splice(ax, 1);
-			}
+
+		a[--L];
+		while ((ax = array.indexOf(a)) !== -1) {array.splice(ax, 1);}
 	}
 	return array;
 };
@@ -45,5 +38,16 @@ exports.randomBool = function() {
 	return Math.round((Math.random() * 1) + 0) === 0;
 }
 
-if (!fs.existsSync("./logs")) fs.mkdirSync("./logs");
-var log = fs.createWriteStream("./logs/time - " + this.getTime("HH.mm.ss, date DD.MM.YYYY") + ".log", {flags: 'a'});
+exports.log = function() {
+
+	logger.info(format.apply(null, arguments));
+}
+
+const logger = winston.createLogger({
+	level: 'info',
+	format: winston.format.combine(winston.format.printf(info => "[" + this.getTime() + "] " + info.message)),
+	transports: [
+	  new winston.transports.Console(),
+	  new winston.transports.File({ filename: "logs/" + this.getTime("HH.mm.ss, DD.MM.YYYY") + ".log" })
+	]
+});

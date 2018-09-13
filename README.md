@@ -7,6 +7,7 @@ Soon...
 * discord.js - `npm i discord.js`
 * format - `npm i format`
 * moment - `npm i moment`
+* winston - `npm i winston`
 
 ## License
 
