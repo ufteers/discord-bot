@@ -59,7 +59,15 @@
 		},
 		"m_admin":
 		{
+			"say_channel_notfound": "This channel was not found.",
+
+			"whois_user_notfound": "This user is not found on this guild.",
 			"whois_status": "Status",
+			"whois_status_online": "Online",
+			"whois_status_idle": "Idle",
+			"whois_status_dnd": "DND",
+			"whois_status_offline": "Offline",
+
 			"whois_joined": "Joined",
 			"whois_registered": "Registered",
 			"whois_roles": "Roles (%s)",

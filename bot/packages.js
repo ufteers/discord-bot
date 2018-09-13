@@ -4,31 +4,35 @@ ds_client.on('ready', () =>
 {
 	fs.readdir("./bot/packages/", (err, files) => {
 		if(err) {
-			console.log(err);
-			return;
+			utils.logError(err.stack);
 		}
+		else {
+			files.forEach(function(cmdname, index) {
+				var package = files[index];
+				fs.readdir("./bot/packages/" + package + "/", (err, files) => {
 
-		files.forEach(function(cmdname, index) {
-			var package = files[index];
-			fs.readdir("./bot/packages/" + package + "/", (err, files) => {
-				if(!err) {
-					if(files.indexOf("index.js") == -1)
-					{
-						utils.log(language.package.noindexjs, package);
-						process.exit(1);
+					if(err) {
+						utils.logError(err.stack);
 					}
-					
-					files.forEach(function(filename, index) {
-						if(filename === "index.js") 
+					else {
+						if(files.indexOf("index.js") == -1)
 						{
-							utils.log(language.package.loaded, package);
-							
-							require("./packages/" + package + "/index.js");
-							return;
+							utils.log(language.package.noindexjs, package);
+							process.exit(1);
 						}
-					});
-				}
+						
+						files.forEach(function(filename, index) {
+							if(filename === "index.js") 
+							{
+								utils.log(language.package.loaded, package);
+								
+								require("./packages/" + package + "/index.js");
+								return;
+							}
+						});
+					}
+				});
 			});
-		});
+		}
 	});
 });

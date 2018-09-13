@@ -6,45 +6,49 @@ commands = new ds.Collection();
 ds_client.on('ready', () => 
 {
 	utils.log(language.cmdhandler.init);
+	
 	fs.readdir("./bot/packages/", (err, files) => {
 		if(err) {
-			console.log(err);
-			return;
+			utils.logError(err.stack);
 		}
-
-		files.forEach(function(cmdname, index) {
-			var command = files[index];
-			fs.readdir("./bot/packages/" + command + "/commands", (err, files) => {
-				if(!err) {
-					utils.log(language.cmdhandler.package_registered, command, files);
-					
-					files.forEach(function(cmdname, index) {
-						let props = require("./packages/" + command + "/commands/" + files[index]);
-	
-						//Find duplicates
-						commands.forEach(function(cmdname) {
-							if(cmdname.name == props.name) {
-								utils.log(language.cmdhandler.command_defined, cmdname.name);
-								return;
-							}
-						});
-
-						//Find Discord commands
-						var discordcommands = ["xivdb", "giphy", "tenor", "tts", "me", "tableflip", "unflip", "shrug", "nick"];
+		else {
+			files.forEach(function(cmdname, index) {
+				var command = files[index];
+				fs.readdir("./bot/packages/" + command + "/commands", (err, files) => {
+					if(err) {
+						utils.logError(err.stack);
+					}
+					else {
+						utils.log(language.cmdhandler.package_registered, command, files);
 						
-						discordcommands.forEach(function(cmdname) {
-							if(cmdname == props.name)
-							{
-								utils.log(language.cmdhandler.command_discord, cmdname);
-								return;
-							}
-						});
+						files.forEach(function(cmdname, index) {
+							let props = require("./packages/" + command + "/commands/" + files[index]);
+		
+							//Find duplicates
+							commands.forEach(function(cmdname) {
+								if(cmdname.name == props.name) {
+									utils.log(language.cmdhandler.command_defined, cmdname.name);
+									return;
+								}
+							});
 
-						commands.set(props.name, props);
-					});
-				}
+							//Find Discord commands
+							var discordcommands = ["xivdb", "giphy", "tenor", "tts", "me", "tableflip", "unflip", "shrug", "nick"];
+							
+							discordcommands.forEach(function(cmdname) {
+								if(cmdname == props.name)
+								{
+									utils.log(language.cmdhandler.command_discord, cmdname);
+									return;
+								}
+							});
+
+							commands.set(props.name, props);
+						});
+					}
+				});
 			});
-		});
+		}
 	});
 });
 
@@ -76,14 +80,17 @@ ds_client.on('message', (message) =>
 			}		
 
 			const command = args.shift().toLowerCase();
-				
+
+			var argstext = "";
+			args.forEach(function(arg) { argstext += arg + " "; });
+
 			let commandfile = commands.get(command);
 			if(commandfile) {
 				
+				utils.log(language.cmdhandler.command_found, message.author.username, message.author.id, command, argstext);
 				commandfile.run(ds_client,message,args);
-				utils.log(language.cmdhandler.command_found, message.author.username, message.author.id, command, args);
 			}
-			else utils.log(language.cmdhandler.command_notfound, message.author.username, message.author.id, command, args);
+			else utils.log(language.cmdhandler.command_notfound, message.author.username, message.author.id, command, argstext);
 			break;
 		}
 	}

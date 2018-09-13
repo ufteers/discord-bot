@@ -59,7 +59,15 @@
 		},
 		"m_admin":
 		{
+			"say_channel_notfound": "Такой канал не найден.",
+
+			"whois_user_notfound": "Пользователь не найден на этом сервере.",
 			"whois_status": "Статус",
+			"whois_status_online": "В сети",
+			"whois_status_idle": "Не активен",
+			"whois_status_dnd": "Не беспокоить",
+			"whois_status_offline": "Невидимый",
+
 			"whois_joined": "Вошёл",
 			"whois_registered": "Зарегестрирован",
 			"whois_roles": "Роли (%s)",

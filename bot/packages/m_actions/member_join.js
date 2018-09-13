@@ -1,4 +1,4 @@
-ds_client.on("guildMemberAdd", member => {
+ds_client.on("guildMemberAdd", (member) => {
 
 	if(serverconfig[member.guild.id].m_actions.join_message.length > 17) {
 

@@ -40,14 +40,20 @@ exports.randomBool = function() {
 
 exports.log = function() {
 
-	logger.info(format.apply(null, arguments));
+	logger.info(format.apply(null, arguments));	
+}
+
+exports.logError = function() {
+
+	logger.error(format.apply(null, arguments));	
 }
 
 const logger = winston.createLogger({
-	level: 'info',
-	format: winston.format.combine(winston.format.printf(info => "[" + this.getTime() + "] " + info.message)),
+	format: winston.format.combine(winston.format.printf(info => "[" + this.getTime() + "] " + "[" + info.level + "] " + info.message)),
 	transports: [
-	  new winston.transports.Console(),
-	  new winston.transports.File({ filename: "logs/" + this.getTime("HH.mm.ss, DD.MM.YYYY") + ".log" })
+		new winston.transports.Console(),
+		new winston.transports.File({ 
+			filename: "logs/" + this.getTime("HH.mm.ss, DD.MM.YYYY") + ".log"
+		})
 	]
 });

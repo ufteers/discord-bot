@@ -1,4 +1,4 @@
-ds_client.on("guildMemberRemove", member => {
+ds_client.on("guildMemberRemove", (member) => {
 	
 	if(serverconfig[member.guild.id].m_actions.leave_message.length > 17) {
 

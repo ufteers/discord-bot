@@ -31,15 +31,19 @@ module.exports.run = async (bot, message, args) => {
       message.reply(language.cmdhandler.invalid_arguments);
       return;
     }
+
+    var channel = ds_client.channels.get(channel_id);
     
-    var message_text = "";
-    for(var i = 0; i < args.length; i++) {
+    if(!channel) {
+      message.reply(language.modules.m_admin.say_channel_notfound);
+    }
+    else {
+    
+      var message_text = "";
+      args.forEach(function(arg) { message_text += " " + arg; });
 
-      message_text += " ";
-      message_text += args[i];
-    };
-
-    if(attachmenturl) ds_client.channels.get(channel_id).send(message_text, {files:[attachmenturl]});
-    else ds_client.channels.get(channel_id).send(message_text);
+      if(attachmenturl) channel.send(message_text, {files:[attachmenturl]});
+      else channel.send(message_text);
+    }
   }
 }
