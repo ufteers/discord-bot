@@ -43,17 +43,25 @@
 	{
 		"m_actions":
 		{
+			"console_join": "Пользователь %s (id - %d) вошёл на сервер.",
+			"console_welcome": "Отправляю приветственное сообщение %s (id - %d).",
+			"console_welcome_sucefull": "Приветственное сообщение для %s (id - %d) успешно отправленно.",
+			"console_welcome_attach_error": "Не возможно открыть вложение, возвращаемый код - %d.",
+			"console_left": "Пользователь %s (id - %d) покинул сервер.",
+			"console_ban_add": "Пользователь %s (id - %d) был заблокирован.",
+			"console_ban_remove": "Пользователь %s (id - %d) был разблокирован.",
+
 			"member_join": "Пользователь присоединился (%d человек)",
 			"bot_join": "Бот присоединился (%d человек)",
 
-			"user_registered": "Зарегестрирован",
+			"user_registered": "Зарегистрирован",
 			"user_joinded": "Вошёл",
 
 			"member_left": "Пользователь вышел (%d человек)",
 			"bot_left": "Бот вышел (%d человек)",
 
-			"member_banned": "Пользователь заблокирован (%d users)",
-			"bot_banned": "Бот заблокирован (%d users)",
+			"member_banned": "Пользователь заблокирован (%d человек)",
+			"bot_banned": "Бот заблокирован (%d человек)",
 			"member_unbanned": "Пользователь разблокирован",
 			"bot_unbanned": "Бот разблокирован"
 		},
@@ -69,7 +77,7 @@
 			"whois_status_offline": "Невидимый",
 
 			"whois_joined": "Вошёл",
-			"whois_registered": "Зарегестрирован",
+			"whois_registered": "Зарегистрирован",
 			"whois_roles": "Роли (%s)",
 			"whois_roles_none": "Отсутствуют",
 			"clean_text": "Массовое удаление сообщений в канале <#%s>, `%d` сообщений удалено."
@@ -90,6 +98,7 @@
 		{
 			"coin_tossed": "Подбросил монетку...",
 			"coin_dropped": "Монетка падает...",
+			"coin_result": "Результаты",
 			"coin_title": "Игра в монетку",
 			"coin_heads": "- Выпал орёл!",
 			"coin_tails": "- Выпала решка!"

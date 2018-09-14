@@ -52,46 +52,48 @@ ds_client.on('ready', () =>
 	});
 });
 
-ds_client.on('message', (message) => 
+ds_client.on("message", (message) => 
 {
-	if(message.author.bot) return;
-	if(serverconfig[message.guild.id])
-	{
-		for(var i = 0; i < serverconfig[message.guild.id].command_prefix.length; i++) {
-			
-			var args, prefix = serverconfig[message.guild.id].command_prefix[i];
-			
-			if(prefix === "{mention}") {		
-			
-				var bottag1 = "<@" + ds_client.user.id + ">";
-				var bottag1_result = message.content.indexOf(bottag1);
-		
-				var bottag2 = "<@!" + ds_client.user.id + ">";
-				var bottag2_result = message.content.indexOf(bottag2);
-								
-				if(bottag1_result !== 0 && bottag2_result !== 0) continue;
+	if(message.guild !== null) {
+		if(message.author.bot) return;
+		if(serverconfig[message.guild.id])
+		{
+			for(var i = 0; i < serverconfig[message.guild.id].command_prefix.length; i++) {
 				
-				args = message.content.slice((bottag1_result !== 0)?(bottag2.length):(bottag1.length)).trim().split(/ +/g);
+				var args, prefix = serverconfig[message.guild.id].command_prefix[i];
+				
+				if(prefix === "{mention}") {		
+				
+					var bottag1 = "<@" + ds_client.user.id + ">";
+					var bottag1_result = message.content.indexOf(bottag1);
+			
+					var bottag2 = "<@!" + ds_client.user.id + ">";
+					var bottag2_result = message.content.indexOf(bottag2);
+									
+					if(bottag1_result !== 0 && bottag2_result !== 0) continue;
+					
+					args = message.content.slice((bottag1_result !== 0)?(bottag2.length):(bottag1.length)).trim().split(/ +/g);
+				}
+				else {
+					
+					if(message.content.indexOf(prefix) !== 0) continue;
+					args = message.content.slice(prefix.length).trim().split(/ +/g);
+				}		
+
+				const command = args.shift().toLowerCase();
+
+				var argstext = "";
+				args.forEach(function(arg) { argstext += arg + " "; });
+
+				let commandfile = commands.get(command);
+				if(commandfile) {
+					
+					utils.log(language.cmdhandler.command_found, message.author.username, message.author.id, command, argstext);
+					commandfile.run(ds_client,message,args);
+				}
+				else utils.log(language.cmdhandler.command_notfound, message.author.username, message.author.id, command, argstext);
+				break;
 			}
-			else {
-				
-				if(message.content.indexOf(prefix) !== 0) continue;
-				args = message.content.slice(prefix.length).trim().split(/ +/g);
-			}		
-
-			const command = args.shift().toLowerCase();
-
-			var argstext = "";
-			args.forEach(function(arg) { argstext += arg + " "; });
-
-			let commandfile = commands.get(command);
-			if(commandfile) {
-				
-				utils.log(language.cmdhandler.command_found, message.author.username, message.author.id, command, argstext);
-				commandfile.run(ds_client,message,args);
-			}
-			else utils.log(language.cmdhandler.command_notfound, message.author.username, message.author.id, command, argstext);
-			break;
 		}
 	}
 });

@@ -49,7 +49,7 @@ exports.logError = function() {
 }
 
 const logger = winston.createLogger({
-	format: winston.format.combine(winston.format.printf(info => "[" + this.getTime() + "] " + "[" + info.level + "] " + info.message)),
+	format: winston.format.combine(winston.format.printf(info => "[" + this.getTime() + "] [" + info.level + "] " + info.message)),
 	transports: [
 		new winston.transports.Console(),
 		new winston.transports.File({ 

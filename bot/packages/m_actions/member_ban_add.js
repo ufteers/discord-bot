@@ -6,7 +6,7 @@ ds_client.on("guildBanAdd", (guild, member) => {
 
     ban_list.push(member.id);
 
-    utils.log("User " + member.username + " (id - " + member.id + ") has been banned.");
+    utils.log(utils.format(language.modules.m_actions.console_ban_add, member.username, member.id));
 
     var user_avatar = (member.avatar)?("https://cdn.discordapp.com/avatars/" + member.id + "/" + member.avatar + ".png?size=128"):("https://cdn.discordapp.com/embed/avatars/" + member.discriminator % 5 + ".png");
 
@@ -15,8 +15,8 @@ ds_client.on("guildBanAdd", (guild, member) => {
       "author": {
         "name": 
           (!member.bot)?
-            (utils.format(language.modules.m_actions.member_banned, guild.members.size - 1)):
-            (utils.format(language.modules.m_actions.bot_banned, guild.members.size - 1)),
+            (utils.format(language.modules.m_actions.member_banned, guild.memberCount - 1)):
+            (utils.format(language.modules.m_actions.bot_banned, guild.memberCount - 1)),
         "icon_url": user_avatar
       },
       "description": "<@" + member.id + "> " + member.username + "#" + member.discriminator,

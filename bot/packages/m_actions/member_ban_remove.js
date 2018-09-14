@@ -2,7 +2,7 @@ ds_client.on("guildBanRemove", (guild, member) => {
 	
 	if(serverconfig[guild.id].m_actions.ban_remove_message.length > 17) {
 
-    utils.log("User " + member.username + " (id - " + member.id + ") has been unbanned.");
+    utils.log(utils.format(language.modules.m_actions.console_ban_remove, member.username, member.id));
 
     var user_avatar = (member.avatar)?("https://cdn.discordapp.com/avatars/" + member.id + "/" + member.avatar + ".png?size=128"):("https://cdn.discordapp.com/embed/avatars/" + member.discriminator % 5 + ".png");
 

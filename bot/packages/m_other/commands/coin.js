@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
                             "author": {"name": language.modules.m_other.coin_title},
                             "description": cointext
                         };
-                        message.edit({ embed });
+                        message.edit(language.modules.m_other.coin_result, {embed});
                     }, 500);
                 });
             }, 500);

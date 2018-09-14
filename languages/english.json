@@ -43,6 +43,14 @@
 	{
 		"m_actions":
 		{
+			"console_join": "User %s (id - %d) join on server.",
+			"console_welcome": "Sending welcome message to %s (id - %d).",
+			"console_welcome_sucefull": "A welcome message for %s (id - %d) was successfully sent.",
+			"console_welcome_attach_error": "Can't open attachment, return code - %d.",
+			"console_left": "User %s (id - %d) left from server.",
+			"console_ban_add": "User %s (id - %d) has been banned.",
+			"console_ban_remove": "User %s (id - %d) has been unbanned",
+
 			"member_join": "Member join (%d users)",
 			"bot_join": "Bot join (%d users)",
 
@@ -90,6 +98,7 @@
 		{
 			"coin_tossed": "Tossed a coin...",
 			"coin_dropped": "The coin falls...",
+			"coin_result": "Result",
 			"coin_title": "Coin",
 			"coin_heads": "- The heads fell!",
 			"coin_tails": "- Tails fell out!"
