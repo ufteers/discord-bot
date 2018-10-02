@@ -14,7 +14,7 @@ ds_client.on("guildMemberAdd", (member) => {
 						(utils.format(language.modules.m_actions.member_join, member.guild.memberCount)):
 						(utils.format(language.modules.m_actions.bot_join, member.guild.memberCount)),
 				"icon_url": user_avatar},
-			"description": "<@" + member.user.id + "> " + member.user.username + "#" + member.user.discriminator,
+			"description": "<@!" + member.user.id + "> " + member.user.username + "#" + member.user.discriminator,
 			"fields": [
 				{
 					"name": language.modules.m_actions.user_registered,

@@ -19,7 +19,7 @@ ds_client.on("guildBanAdd", (guild, member) => {
             (utils.format(language.modules.m_actions.bot_banned, guild.memberCount - 1)),
         "icon_url": user_avatar
       },
-      "description": "<@" + member.id + "> " + member.username + "#" + member.discriminator,
+      "description": "<@!" + member.id + "> " + member.username + "#" + member.discriminator,
       "footer": {"text": "ID: " + member.id + " • " + utils.getTime()},
     };
     ds_client.channels.get(serverconfig[guild.id].m_actions.ban_add_message).send({ embed });

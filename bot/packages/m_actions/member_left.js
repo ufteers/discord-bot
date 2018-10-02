@@ -27,7 +27,7 @@ ds_client.on("guildMemberRemove", (member) => {
 							(utils.format(language.modules.m_actions.bot_left, member.guild.memberCount)),
 					"icon_url": user_avatar
 				},
-				"description": "<@" + member.user.id + "> " + member.user.username + "#" + member.user.discriminator,
+				"description": "<@!" + member.user.id + "> " + member.user.username + "#" + member.user.discriminator,
 				"fields": [
 					{
 						"name": language.modules.m_actions.user_joinded,

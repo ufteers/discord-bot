@@ -94,6 +94,10 @@
 			"ping_title": "Ping",
 			"ping_text": "The difference between the creation of the message and the response is `%d` ms."
 		},
+		"m_moderator":
+		{
+			"dont_post_invite": "Please do not post invite links here."
+		},
 		"m_other":
 		{
 			"coin_tossed": "Tossed a coin...",

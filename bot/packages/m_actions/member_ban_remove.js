@@ -15,7 +15,7 @@ ds_client.on("guildBanRemove", (guild, member) => {
             (language.modules.m_actions.bot_unbanned),
         "icon_url": user_avatar
       },
-      "description": "<@" + member.id + "> " + member.username + "#" + member.discriminator,
+      "description": member.username + "#" + member.discriminator,
       "footer": {"text": "ID: " + member.id + " • " + utils.getTime()},
     };
     ds_client.channels.get(serverconfig[guild.id].m_actions.ban_remove_message).send({ embed });
